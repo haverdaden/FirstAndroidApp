@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         registerBtn = findViewById(R.id.registerBtn);
         myAnimation = AnimationUtils.loadAnimation(this,R.anim.slide_animation);
         spaceship = findViewById(R.id.spaceship);
+        username = findViewById(R.id.editTexts1);
+        password = findViewById(R.id.editText2);
 
 
 
@@ -38,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Animation vid knapptryck
                 spaceship.startAnimation(myAnimation);
-
-                Toast.makeText(MainActivity.this, "Du har loggat in!", Toast.LENGTH_SHORT).show();
+                checkLogin();
 
             }
         });
@@ -74,6 +75,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //Kontrollera inloggning
+    private void checkLogin() {
+
+        if(username.getText().toString().equals("admin") && password.getText().toString().equals("pass")) {
+            Toast.makeText(MainActivity.this, "Du har loggat in!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(MainActivity.this, "Wrong username or password", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
